@@ -5,6 +5,8 @@ space. It pulls a fixed set of high-signal sources into a local SQLite database,
 has Claude score and summarize each item against `profile.md`, and shows the
 result in a small local web app.
 
+![coffee feed with the daily briefing, scored items, and a Discuss panel open](resources/screenshot.png)
+
 ## Run it
 
 ```bash
