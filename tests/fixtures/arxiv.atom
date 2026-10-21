@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<feed xmlns:opensearch="http://a9.com/-/spec/opensearch/1.1/" xmlns:arxiv="http://arxiv.org/schemas/atom" xmlns="http://www.w3.org/2005/Atom">
+  <id>https://arxiv.org/api/RBz14Fq7DlQdUCMrmuiyFSPPuAk</id>
+  <title>arXiv Query: search_query=(cat:cs.AI OR cat:cs.LG OR cat:cs.CL OR cat:cs.MA) AND (abs:"LLM agent" OR abs:"language agent" OR abs:"tool use" OR abs:"agentic" OR abs:"multi-agent" OR abs:"long-horizon" OR abs:"context engineering")&amp;id_list=&amp;start=0&amp;max_results=2</title>
+  <updated>2026-10-20T22:16:19Z</updated>
+  <link href="https://arxiv.org/api/query?search_query=(cat:cs.AI+OR+(cat:cs.LG+OR+(cat:cs.CL+OR+cat:cs.MA)))+AND+(abs:%22LLM+agent%22+OR+(abs:%22language+agent%22+OR+(abs:%22tool+use%22+OR+(abs:%22agentic%22+OR+(abs:%22multi-agent%22+OR+(abs:%22long-horizon%22+OR+abs:%22context+engineering%22))))))&amp;start=0&amp;max_results=2&amp;id_list=" type="application/atom+xml"/>
+  <opensearch:itemsPerPage>2</opensearch:itemsPerPage>
+  <opensearch:totalResults>54342</opensearch:totalResults>
+  <opensearch:startIndex>0</opensearch:startIndex>
+  <entry>
+    <id>http://arxiv.org/abs/2610.26861v1</id>
+    <title>Can It Actually Work? Synthesizing Functional CAD Mechanisms</title>
+    <updated>2026-10-19T17:59:58Z</updated>
+    <link href="https://arxiv.org/abs/2610.26861v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.26861v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>While LLM agents can generate visually plausible CAD assemblies, these designs often fail to fulfill their intended physical functions. We study functional CAD design, a setting where agents interpret underspecified requests to construct and iteratively revise mechanisms that satisfy functional requirements in physical simulation. Verifying these requirements is nontrivial: different candidate mechanisms may realize the same function through entirely different components, controls, and operating sequences. To bridge this gap, we propose FunCAD-Harness, a framework that translates abstract requirements into candidate-specific physical tests and uses simulation feedback to guide design revisions. To systematically evaluate this capability, we introduce FunCADBench, a benchmark spanning 46 mechanism families with interdependent and multi-step operations. Experiments across frontier LLM agents show that FunCAD-Harness exposes subtle mechanical failures invisible to visual inspection, substantially improving functional success rates over standard simulation-augmented baselines. Ultimately, our work marks a step toward CAD agents capable of translating human intent into working mechanisms.</summary>
+    <category term="cs.CV" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.CL" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.GR" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-19T17:59:58Z</published>
+    <arxiv:comment>45 pages, 16 figures, project page: https://thegenlab.ai/funcad/</arxiv:comment>
+    <arxiv:primary_category term="cs.CV"/>
+    <author>
+      <name>Wenqian Zhang</name>
+    </author>
+    <author>
+      <name>Yangyi Huang</name>
+    </author>
+    <author>
+      <name>Zigeng Xu</name>
+    </author>
+    <author>
+      <name>Weiyang Liu</name>
+    </author>
+    <author>
+      <name>Zhen Liu</name>
+    </author>
+  </entry>
+  <entry>
+    <id>http://arxiv.org/abs/2610.26852v1</id>
+    <title>CoopUQ: Robust Multi-Robot Social Navigation via Uncertainty-Aware Cooperative Forecasting</title>
+    <updated>2026-10-19T17:59:49Z</updated>
+    <link href="https://arxiv.org/abs/2610.26852v1" rel="alternate" type="text/html"/>
+    <link href="https://arxiv.org/pdf/2610.26852v1" rel="related" type="application/pdf" title="pdf"/>
+    <summary>Reinforcement learning enables mobile robots to make fast and scalable navigation decisions in constrained human-shared environments. However, directly extending single-robot approaches to multi-robot settings often fails to ensure safety and efficiency, especially under occlusions and out-of-distribution (OOD) scenarios, where individual robots may overlook potential risks or make inaccurate predictions. Leveraging cooperation effectively for both prediction and navigation remains a major challenge. We propose CoopUQ, a multi-robot social navigation framework that bridges uncertainty-aware cooperative occupancy forecasting and robust decision making. CoopUQ predicts future occupancy grid maps through cross-robot spatiotemporal feature fusion and further leverages forecasts and their uncertainty to guide policy via constrained multi-agent reinforcement learning, where the cost penalizes navigation through regions predicted to be occupied or highly uncertain. This design enables the policy to adapt its risk sensitivity under distribution shifts. Experimental results across multiple Unity3D-based simulation environments with both in-distribution and OOD settings, including diverse layouts, pedestrian densities, and rushing behavior, demonstrate improved prediction performance and safety over representative baselines. Real-robot experiments further demonstrate its robustness across various scenes. Our code and videos are available at https://coopuq.github.io/.</summary>
+    <category term="cs.RO" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.AI" scheme="http://arxiv.org/schemas/atom"/>
+    <category term="cs.LG" scheme="http://arxiv.org/schemas/atom"/>
+    <published>2026-10-19T17:59:49Z</published>
+    <arxiv:comment>Conference on Robot Learning (CoRL 2026); Project Website: https://coopuq.github.io/</arxiv:comment>
+    <arxiv:primary_category term="cs.RO"/>
+    <author>
+      <name>Zehao Wang</name>
+    </author>
+    <author>
+      <name>Jianpeng Yao</name>
+    </author>
+    <author>
+      <name>Yuping Wang</name>
+    </author>
+    <author>
+      <name>Yiping Li</name>
+    </author>
+    <author>
+      <name>Jiaqi Li</name>
+    </author>
+    <author>
+      <name>Zhixu Li</name>
+    </author>
+    <author>
+      <name>Kanghoon Lee</name>
+    </author>
+    <author>
+      <name>Jinfeng Wang</name>
+    </author>
+    <author>
+      <name>Cong Liu</name>
+    </author>
+    <author>
+      <name>Zhaowei Tan</name>
+    </author>
+    <author>
+      <name>Jinkyoo Park</name>
+    </author>
+    <author>
+      <name>Jiachen Li</name>
+    </author>
+  </entry>
+</feed>

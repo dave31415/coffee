@@ -1,0 +1,23 @@
+<div class="panel chat">
+  <div class="panel-head">
+    <strong>Discuss</strong>
+    <span class="spacer"></span>
+    {% if messages %}
+    <button class="txt" hx-post="/items/{{ item.id }}/chat/clear" hx-target="#detail-{{ item.id }}" hx-confirm="Clear this conversation?">Clear</button>
+    {% endif %}
+    <button class="txt close" onclick="this.closest('.detail').innerHTML=''" title="close">&#10005;</button>
+  </div>
+  <div class="msgs">
+    {% if not messages %}<p class="hint">Ask anything about this item. The model has the full text.</p>{% endif %}
+    {% for m in messages %}
+    <div class="msg {{ m.role }}">{% if m.role == 'assistant' %}{{ m.content|md|safe }}{% else %}<p>{{ m.content }}</p>{% endif %}</div>
+    {% endfor %}
+    {% if error %}<p class="err">{{ error }}</p>{% endif %}
+  </div>
+  <form hx-post="/items/{{ item.id }}/chat" hx-target="#detail-{{ item.id }}" hx-indicator="#detail-{{ item.id }}"
+        hx-on::before-request="this.querySelector('button').disabled=true">
+    <input type="text" name="message" placeholder="Ask about this item…" autocomplete="off" autofocus required>
+    <button type="submit" class="primary small">Send</button>
+  </form>
+</div>
+<script>(function(){var d=document.getElementById('detail-{{ item.id }}');if(d){var m=d.querySelector('.msgs');if(m)m.scrollTop=m.scrollHeight;var i=d.querySelector('input');if(i)i.focus();}})();</script>

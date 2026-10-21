@@ -1,0 +1,20 @@
+<div id="status" {% if refreshing %}hx-get="/status" hx-trigger="every 3s" hx-swap="outerHTML"{% endif %}>
+<h1>Status</h1>
+<dl class="kv">
+  <dt>Last refresh</dt><dd>{% if last_refresh %}{{ last_refresh|reldate }} ({{ last_refresh }}){% else %}never{% endif %}</dd>
+  <dt>Items</dt><dd>{{ total }} total, {{ unprocessed }} not yet scored</dd>
+  <dt>Model</dt><dd>{{ model }} {% if not has_key %}<span class="pill warn">ANTHROPIC_API_KEY not set — items are collected but not scored</span>{% endif %}</dd>
+  {% if error %}<dt>Last error</dt><dd class="err">{{ error }}</dd>{% endif %}
+</dl>
+<form hx-post="/refresh" hx-target="#status" hx-swap="outerHTML">
+  <button type="submit" class="primary" {% if refreshing %}disabled{% endif %}>{% if refreshing %}Refreshing…{% else %}Refresh now{% endif %}</button>
+</form>
+<table class="counts">
+  <thead><tr><th>Source</th><th>Items</th><th>Unscored</th><th>Latest</th></tr></thead>
+  <tbody>
+  {% for r in counts %}
+  <tr><td>{{ source_names.get(r.source, r.source) }}</td><td>{{ r.n }}</td><td>{{ r.unprocessed or 0 }}</td><td>{{ r.latest|reldate }}</td></tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>

@@ -1,0 +1,191 @@
+[
+ {
+  "paper": {
+   "id": "2610.22466",
+   "authors": [
+    {
+     "_id": "6ad7bb80efdc4c3bd8229c58",
+     "name": "Wenxuan Ding",
+     "hidden": false
+    },
+    {
+     "_id": "6ad7bb80efdc4c3bd8229c59",
+     "name": "Qin Lu",
+     "hidden": false
+    },
+    {
+     "_id": "6ad7bb80efdc4c3bd8229c5a",
+     "name": "Changlong Yu",
+     "hidden": false
+    },
+    {
+     "_id": "6ad7bb80efdc4c3bd8229c5b",
+     "name": "Sha Li",
+     "hidden": false
+    },
+    {
+     "_id": "6ad7bb80efdc4c3bd8229c5c",
+     "name": "Shuowei Jin",
+     "hidden": false
+    },
+    {
+     "_id": "6ad7bb80efdc4c3bd8229c5d",
+     "name": "Xin Liu",
+     "hidden": false
+    },
+    {
+     "_id": "6ad7bb80efdc4c3bd8229c5e",
+     "name": "Zhenyu Shi",
+     "hidden": false
+    },
+    {
+     "_id": "6ad7bb80efdc4c3bd8229c5f",
+     "name": "Greg Durrett",
+     "hidden": false
+    }
+   ],
+   "publishedAt": "2026-10-15T00:00:00.000Z",
+   "submittedOnDailyAt": "2026-10-20T00:00:00.000Z",
+   "title": "Harness-Delta Attribution: Dissecting Gains From Harness Evolution",
+   "submittedOnDailyBy": {
+    "_id": "6502b65106c324fee1089ad5",
+    "avatarUrl": "/avatars/b3ef32eb3102eee6e1aea9c7e8c3a2ea.svg",
+    "isPro": false,
+    "fullname": "Wenxuan D",
+    "user": "wenwenD",
+    "type": "user",
+    "name": "wenwenD"
+   },
+   "summary": "Harness evolution automatically optimizes the prompts, skills, tools, and orchestration code around a fixed-weight model, offering a way to improve agentic systems without updating model weights. The agent harness is iteratively optimized to achieve higher performance on the search set. But how much of this gain reflects benchmark-specific overfitting or additional inference-time compute, and how much may generalize beyond the search set? In this work, we introduce Harness-Delta Attribution (HDA), an evaluation protocol that dissects an evolution gain into artifact-driven overfitting, gains explained by test-time scaling, and the remainder, which gives an upper bound on residual generalizable improvement. We apply HDA to 11 executor models and three harness-evolution frameworks across math, coding, creativity, and agentic tasks. In 21 of these settings that show statistically significant search-set gains, we find that a large share of the improvement is explained by overfitting or test-time scaling. Specifically, among these 21 settings, overfitting and test-time scaling account for 54% and 14% of the gain on average; their combined share exceeds 50% in 14 settings. The residual and held-out transfer vary substantially across tasks, models, and frameworks. Importantly, search-set gains often fail to transfer to held-out tasks, and provide limited evidence that they will persist under practical distribution shifts. Moreover, validation-based signals are insufficient to prevent overfitting. These results motivate attribution-aware evaluation in future harness evolution research.",
+   "upvotes": 1,
+   "discussionId": "6ad7bb81efdc4c3bd8229c60",
+   "projectPage": "https://github.com/Wenwen-D/HarnessDeltaAttribution",
+   "githubRepo": "https://github.com/Wenwen-D/HarnessDeltaAttribution",
+   "githubRepoAddedBy": "user",
+   "ai_summary": "Harness-Delta Attribution dissects harness evolution gains into overfitting, test-time scaling, and residual generalizable improvement, finding that most search-set gains do not reliably transfer to held-out tasks.",
+   "ai_keywords": [
+    "Harness-Delta Attribution",
+    "harness evolution",
+    "agentic systems",
+    "test-time scaling",
+    "overfitting",
+    "search-set gains",
+    "held-out transfer"
+   ],
+   "ai_summary_model": "thinkingmachines/Inkling-Small",
+   "githubStars": 12
+  },
+  "publishedAt": "2026-10-14T20:00:00.000Z",
+  "title": "Harness-Delta Attribution: Dissecting Gains From Harness Evolution",
+  "summary": "Harness evolution automatically optimizes the prompts, skills, tools, and orchestration code around a fixed-weight model, offering a way to improve agentic systems without updating model weights. The agent harness is iteratively optimized to achieve higher performance on the search set. But how much of this gain reflects benchmark-specific overfitting or additional inference-time compute, and how much may generalize beyond the search set? In this work, we introduce Harness-Delta Attribution (HDA), an evaluation protocol that dissects an evolution gain into artifact-driven overfitting, gains explained by test-time scaling, and the remainder, which gives an upper bound on residual generalizable improvement. We apply HDA to 11 executor models and three harness-evolution frameworks across math, coding, creativity, and agentic tasks. In 21 of these settings that show statistically significant search-set gains, we find that a large share of the improvement is explained by overfitting or test-time scaling. Specifically, among these 21 settings, overfitting and test-time scaling account for 54% and 14% of the gain on average; their combined share exceeds 50% in 14 settings. The residual and held-out transfer vary substantially across tasks, models, and frameworks. Importantly, search-set gains often fail to transfer to held-out tasks, and provide limited evidence that they will persist under practical distribution shifts. Moreover, validation-based signals are insufficient to prevent overfitting. These results motivate attribution-aware evaluation in future harness evolution research.",
+  "thumbnail": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2610.22466.png",
+  "numComments": 1,
+  "submittedBy": {
+   "_id": "6502b65106c324fee1089ad5",
+   "avatarUrl": "/avatars/b3ef32eb3102eee6e1aea9c7e8c3a2ea.svg",
+   "fullname": "Wenxuan D",
+   "name": "wenwenD",
+   "type": "user",
+   "isPro": false,
+   "isHf": false,
+   "isHfAdmin": false,
+   "isMod": false,
+   "followerCount": 1,
+   "isUserFollowing": false
+  },
+  "isAuthorParticipating": false
+ },
+ {
+  "paper": {
+   "id": "2610.25288",
+   "authors": [
+    {
+     "_id": "6ad7c21defdc4c3bd8229c68",
+     "name": "Jiaxi Jiang",
+     "hidden": false
+    },
+    {
+     "_id": "6ad7c21defdc4c3bd8229c69",
+     "name": "Matthias Heyrman",
+     "hidden": false
+    },
+    {
+     "_id": "6ad7c21defdc4c3bd8229c6a",
+     "name": "Ren\u00e9 Zurbr\u00fcgg",
+     "hidden": false
+    },
+    {
+     "_id": "6ad7c21defdc4c3bd8229c6b",
+     "name": "Marco Hutter",
+     "hidden": false
+    },
+    {
+     "_id": "6ad7c21defdc4c3bd8229c6c",
+     "name": "Christian Holz",
+     "hidden": false
+    }
+   ],
+   "publishedAt": "2026-10-18T00:00:00.000Z",
+   "submittedOnDailyAt": "2026-10-20T00:00:00.000Z",
+   "title": "Vision as Proprioception: Estimating Humanoid Robot Pose from Video",
+   "submittedOnDailyBy": {
+    "_id": "631fadbe788f34547a9cf61c",
+    "avatarUrl": "/avatars/0d105b2dfca7e16e6309db48cd188148.svg",
+    "isPro": false,
+    "fullname": "Jiaxi Jiang",
+    "user": "jiaxi-jiang",
+    "type": "user",
+    "name": "jiaxi-jiang"
+   },
+   "summary": "Estimating a humanoid robot's internal state from video has a wide range of real-world applications but remains unexplored. During interactions with a robot, its onboard state information may be unavailable due to privacy, ownership, or communication constraints. Meanwhile, online and AI-generated robot videos provide rich sources of data but typically lack corresponding joint configurations, limiting their direct use in robot learning. To address these issues, we present HumanoidPose, a new framework that treats vision as proprioception to recover full-body joint configurations in world space from video alone. Specifically, we combine pretrained human-pose features with robot kinematics in a unified model that predicts each embodiment's joint configurations. We retarget human motions to sixteen different humanoid embodiments, enabling scalable learning entirely from synthetic data. To improve real-world generalization, we further leverage unlabeled online videos through self-training to develop a 2D robot-pose detector. In our evaluation, HumanoidPose improves joint-angle and joint-position accuracy over the evaluated baselines and reduces joint-angle error by 18-32% relative to the best-performing baseline on each of the three real humanoid platforms. We further show improved global localization and generalization to unseen embodiments. HumanoidPose enables visual understanding of other robots during interaction and extraction of robot motion from online and generated videos.",
+   "upvotes": 0,
+   "discussionId": "6ad7c21defdc4c3bd8229c6d",
+   "projectPage": "https://siplab.org/projects/HumanoidPose",
+   "githubRepo": "https://github.com/eth-siplab/HumanoidPose",
+   "githubRepoAddedBy": "user",
+   "ai_summary": "HumanoidPose recovers full-body humanoid robot joint configurations from video by combining human-pose features with robot kinematics and self-training on unlabeled videos.",
+   "ai_keywords": [
+    "vision as proprioception",
+    "human-pose features",
+    "robot kinematics",
+    "retargeting",
+    "self-training",
+    "2D robot-pose detector",
+    "joint-angle error",
+    "global localization"
+   ],
+   "ai_summary_model": "thinkingmachines/Inkling-Small",
+   "githubStars": 1,
+   "organization": {
+    "_id": "63dd02d5f37111482523565a",
+    "name": "ETHZurich",
+    "fullname": "ETH Z\u00fcrich",
+    "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/1675428475378-63dcff68a8877129a1574f33.png"
+   }
+  },
+  "publishedAt": "2026-10-17T20:00:00.000Z",
+  "title": "Vision as Proprioception: Estimating Humanoid Robot Pose from Video",
+  "summary": "Estimating a humanoid robot's internal state from video has a wide range of real-world applications but remains unexplored. During interactions with a robot, its onboard state information may be unavailable due to privacy, ownership, or communication constraints. Meanwhile, online and AI-generated robot videos provide rich sources of data but typically lack corresponding joint configurations, limiting their direct use in robot learning. To address these issues, we present HumanoidPose, a new framework that treats vision as proprioception to recover full-body joint configurations in world space from video alone. Specifically, we combine pretrained human-pose features with robot kinematics in a unified model that predicts each embodiment's joint configurations. We retarget human motions to sixteen different humanoid embodiments, enabling scalable learning entirely from synthetic data. To improve real-world generalization, we further leverage unlabeled online videos through self-training to develop a 2D robot-pose detector. In our evaluation, HumanoidPose improves joint-angle and joint-position accuracy over the evaluated baselines and reduces joint-angle error by 18-32% relative to the best-performing baseline on each of the three real humanoid platforms. We further show improved global localization and generalization to unseen embodiments. HumanoidPose enables visual understanding of other robots during interaction and extraction of robot motion from online and generated videos.",
+  "thumbnail": "https://cdn-thumbnails.huggingface.co/social-thumbnails/papers/2610.25288.png",
+  "numComments": 1,
+  "submittedBy": {
+   "_id": "631fadbe788f34547a9cf61c",
+   "avatarUrl": "/avatars/0d105b2dfca7e16e6309db48cd188148.svg",
+   "fullname": "Jiaxi Jiang",
+   "name": "jiaxi-jiang",
+   "type": "user",
+   "isPro": false,
+   "isHf": false,
+   "isHfAdmin": false,
+   "isMod": false,
+   "isUserFollowing": false
+  },
+  "organization": {
+   "_id": "63dd02d5f37111482523565a",
+   "name": "ETHZurich",
+   "fullname": "ETH Z\u00fcrich",
+   "avatar": "https://cdn-avatars.huggingface.co/v1/production/uploads/1675428475378-63dcff68a8877129a1574f33.png"
+  },
+  "isAuthorParticipating": false
+ }
+]

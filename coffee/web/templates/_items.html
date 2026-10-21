@@ -1,0 +1,9 @@
+{% if count == 0 %}
+<p class="empty">Nothing here. {% if refreshing %}A refresh is running; reload in a minute.{% else %}Try a wider range, lower score, or <a href="/status">run a refresh</a>.{% endif %}</p>
+{% endif %}
+{% for label, items in groups %}
+<section class="group">
+  <h2>{{ label }} <span class="n">{{ items|length }}</span></h2>
+  {% for item in items %}{% include "_item.html" %}{% endfor %}
+</section>
+{% endfor %}

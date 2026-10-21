@@ -1,0 +1,23 @@
+<article class="item {% if item.hidden %}hidden{% endif %}" id="item-{{ item.id }}">
+  <div class="score s{{ item.score or 0 }}" title="relevance">{{ item.score if item.score else '·' }}</div>
+  <div class="body">
+    <a class="title" href="{{ item.url }}" target="_blank" rel="noopener">{{ item.title }}</a>
+    <div class="meta">
+      <span class="src">{{ source_names.get(item.source, item.source) }}</span>
+      {% if item.author %}<span>{{ item.author|truncate(60) }}</span>{% endif %}
+      <span>{{ item.published_at|reldate }}</span>
+    </div>
+    {% if item.summary %}<p class="summary">{{ item.summary }}</p>{% endif %}
+  </div>
+  <div class="actions">
+    <button class="txt" hx-get="/items/{{ item.id }}/more" hx-target="#detail-{{ item.id }}" hx-indicator="#detail-{{ item.id }}" title="longer summary with links">More</button>
+    <button class="txt" hx-get="/items/{{ item.id }}/chat" hx-target="#detail-{{ item.id }}" hx-indicator="#detail-{{ item.id }}" title="chat about this item">Discuss</button>
+    <button hx-post="/items/{{ item.id }}/rate" hx-vals='{"value": 1}' hx-target="#item-{{ item.id }}" hx-swap="outerHTML"
+            class="{% if item.rating == 1 %}on{% endif %}" title="more like this">&#128077;</button>
+    <button hx-post="/items/{{ item.id }}/rate" hx-vals='{"value": -1}' hx-target="#item-{{ item.id }}" hx-swap="outerHTML"
+            class="{% if item.rating == -1 %}on{% endif %}" title="less like this">&#128078;</button>
+    <button hx-post="/items/{{ item.id }}/hide" hx-target="#item-{{ item.id }}" hx-swap="outerHTML"
+            title="{% if item.hidden %}unhide{% else %}hide{% endif %}">{% if item.hidden %}&#8634;{% else %}&#10005;{% endif %}</button>
+  </div>
+  <div class="detail" id="detail-{{ item.id }}"></div>
+</article>

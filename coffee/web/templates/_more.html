@@ -1,0 +1,19 @@
+<div class="panel">
+  <div class="panel-head">
+    <strong>More</strong>
+    <button class="txt close" onclick="this.closest('.detail').innerHTML=''" title="close">&#10005;</button>
+  </div>
+  {% if error %}<p class="err">{{ error }}</p>{% endif %}
+  {% if summary %}
+    {% for p in summary.paragraphs %}<p>{{ p }}</p>{% endfor %}
+    {% if summary.links %}
+    <h4>Links</h4>
+    <ul class="links">
+      {% for l in summary.links %}
+      <li><a href="{{ l.url }}" target="_blank" rel="noopener">{{ l.title }}</a>{% if l.why %} <span class="why">{{ l.why }}</span>{% endif %}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  {% endif %}
+  <p class="foot"><a href="{{ item.url }}" target="_blank" rel="noopener">Open original</a></p>
+</div>

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="layout">
+<aside class="side">
+  <div id="briefing" hx-get="/briefing" hx-trigger="load" hx-indicator="#briefing" class="briefing"></div>
+</aside>
+<div class="mainc">
+<form class="filters" hx-get="/" hx-target="#items" hx-push-url="true" hx-trigger="change, keyup changed delay:400ms from:[name=q]">
+  <div class="seg">
+    {% for key, label in range_labels.items() %}
+    <label class="{% if filters.range == key %}on{% endif %}">
+      <input type="radio" name="range" value="{{ key }}" {% if filters.range == key %}checked{% endif %}>{{ label }}
+    </label>
+    {% endfor %}
+  </div>
+  <select name="category">
+    <option value="">All categories</option>
+    {% for key, label in category_labels.items() %}
+    <option value="{{ key }}" {% if filters.category == key %}selected{% endif %}>{{ label }}</option>
+    {% endfor %}
+  </select>
+  <select name="source">
+    <option value="">All sources</option>
+    {% for key, label in source_names.items() %}
+    <option value="{{ key }}" {% if filters.source == key %}selected{% endif %}>{{ label }}</option>
+    {% endfor %}
+  </select>
+  <select name="min_score">
+    {% for s in [0, 2, 3, 4, 5] %}
+    <option value="{{ s }}" {% if filters.min_score == s %}selected{% endif %}>{% if s == 0 %}Any score{% else %}Score ≥ {{ s }}{% endif %}</option>
+    {% endfor %}
+  </select>
+  <input type="search" name="q" placeholder="Search titles" value="{{ filters.q }}">
+  <label class="check"><input type="checkbox" name="show_hidden" value="1" {% if filters.show_hidden %}checked{% endif %}> hidden</label>
+</form>
+<div id="items">
+{% include "_items.html" %}
+</div>
+</div>
+</div>
+{% endblock %}

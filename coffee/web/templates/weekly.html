@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}coffee · weekly{% endblock %}
+{% block content %}
+<h1>This week's top items</h1>
+<p class="sub">Score 4 or higher from the last 7 days, up to 10 per category.</p>
+<div id="items">{% include "_items.html" %}</div>
+{% endblock %}

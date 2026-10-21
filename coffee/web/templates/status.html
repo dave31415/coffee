@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}coffee · status{% endblock %}
+{% block content %}
+<div id="status" {% if refreshing %}hx-get="/status" hx-trigger="every 3s" hx-swap="outerHTML"{% endif %}>
+{% include "_status.html" %}
+</div>
+{% endblock %}

@@ -1,0 +1,19 @@
+<div class="briefing-head">
+  <h2>Briefing</h2>
+  <span class="n">{{ count }} item{{ '' if count == 1 else 's' }} scored {{ threshold }}+, last {{ hours }}h</span>
+</div>
+{% if error %}<p class="err">{{ error }}</p>{% endif %}
+{% if briefing %}
+  <p class="lede">{{ briefing.lede }}</p>
+  <ul class="brief">
+  {% for b in briefing.bullets %}
+    <li>{{ b.text }}
+      {% for iid in b.item_ids if iid in items %}<a class="ref" href="{{ items[iid].url }}" target="_blank" rel="noopener" title="{{ items[iid].title }}">{{ loop.index }}</a>{% endfor %}
+    </li>
+  {% endfor %}
+  </ul>
+  <p class="foot">{% if generated_at %}Generated {{ generated_at|reldate }}.{% endif %}
+    <a href="#" hx-get="/briefing?force=1" hx-target="#briefing" hx-indicator="#briefing">Regenerate</a></p>
+{% elif not error %}
+  <p class="hint">{% if count == 0 %}Nothing scored {{ threshold }} or higher in the last {{ hours }} hours{% if refreshing %}; a refresh is running{% endif %}.{% endif %}</p>
+{% endif %}
