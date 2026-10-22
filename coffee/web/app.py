@@ -65,6 +65,18 @@ templates.env.globals["category_labels"] = config.CATEGORY_LABELS
 templates.env.globals["range_labels"] = RANGE_LABELS
 
 
+def static_url(name: str) -> str:
+    """Static file URL with the file's mtime as a version, so edits bypass browser caches."""
+    try:
+        version = int((HERE / "static" / name).stat().st_mtime)
+    except OSError:
+        version = 0
+    return f"/static/{name}?v={version}"
+
+
+templates.env.globals["static_url"] = static_url
+
+
 def create_app(auto_refresh: bool = True) -> FastAPI:
     @asynccontextmanager
     async def lifespan(_app):
