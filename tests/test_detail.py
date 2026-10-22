@@ -101,9 +101,9 @@ def test_chat_routes(monkeypatch, tmp_path):
         assert r.status_code == 200 and "Ask anything" in r.text
         r = c.post("/items/1/chat", data={"message": "what is it?"})
         assert "what is it?" in r.text and "<strong>1</strong>" in r.text
-        r = c.get("/items/1/more")
+        r = c.get("/items/1/explain")
         assert "Para one." in r.text and "evil.example" not in r.text
         r = c.post("/items/1/chat/clear")
         assert r.status_code == 200 and r.text == ""
         assert "Ask anything" in c.get("/items/1/chat").text
-        assert c.get("/items/999/more").status_code == 404
+        assert c.get("/items/999/explain").status_code == 404

@@ -23,13 +23,16 @@ class Link(BaseModel):
 
 
 class LongSummary(BaseModel):
-    paragraphs: list[str] = Field(description="Two to four plain-text paragraphs")
+    paragraphs: list[str] = Field(description="Two to four short plain-language paragraphs")
     links: list[Link] = Field(description="Primary-source links worth following, best first, at most 6")
 
 
-SUMMARY_RUBRIC = """Write a longer summary of one item from an AI news feed for a reader who builds agentic AI systems.
-Two to four paragraphs: what it is, the specific technical content, and why it matters or does not.
-Be concrete: name methods, numbers, APIs, versions. No filler, no "this article discusses".
+SUMMARY_RUBRIC = """Explain one item from an AI news feed to a smart, curious reader who is not an AI expert.
+Two to four short paragraphs: what this is, what it actually does or found, and why it matters or does not.
+Write plainly. Avoid jargon; when a technical term is unavoidable, say what it means in a few words the
+first time you use it. Use a concrete everyday comparison when it genuinely helps. Keep the facts specific
+(names, numbers, what changed) but never pile up acronyms, model names or benchmark scores without
+saying what they mean. No filler, no "this article discusses".
 Then pick the primary-source links worth following: the paper, repo, docs, original announcement, or
 the thing being discussed. Copy URLs exactly from the link list given; never invent or alter a URL.
 Skip navigation, social, subscription and author-profile links."""

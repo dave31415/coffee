@@ -10,7 +10,7 @@
     {% if item.summary %}<p class="summary">{{ item.summary }}</p>{% endif %}
   </div>
   <div class="actions">
-    <button class="txt" hx-get="/items/{{ item.id }}/more" hx-target="#detail-{{ item.id }}" hx-indicator="#detail-{{ item.id }}" title="longer summary with links">More</button>
+    <button class="txt" hx-get="/items/{{ item.id }}/explain" hx-target="#detail-{{ item.id }}" hx-indicator="#detail-{{ item.id }}" title="plain-language explanation with links">Explain</button>
     <button class="txt" hx-get="/items/{{ item.id }}/chat" hx-target="#detail-{{ item.id }}" hx-indicator="#detail-{{ item.id }}" title="chat about this item">Discuss</button>
     <button hx-post="/items/{{ item.id }}/rate" hx-vals='{"value": 1}' hx-target="#item-{{ item.id }}" hx-swap="outerHTML"
             class="{% if item.rating == 1 %}on{% endif %}" title="more like this">&#128077;</button>

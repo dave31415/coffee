@@ -77,10 +77,11 @@ threshold drops to 3. Knobs: `BRIEFING_HOURS`, `BRIEFING_MIN_SCORE`,
 
 Each item has two buttons on the right:
 
-- **More** fetches the item's own page (for papers, the arXiv HTML full text when
-  it exists), stores the text and every link it finds, and asks Claude for a
-  longer summary plus the primary-source links worth following. Only URLs that
-  actually appear in the item can be returned. Generated once, then cached.
+- **Explain** fetches the item's own page (for papers, the arXiv HTML full text
+  when it exists), stores the text and every link it finds, and asks Claude for a
+  plain-language explanation aimed at a non-expert, plus the primary-source
+  links worth following. Only URLs that actually appear in the item can be
+  returned. Generated once, then cached.
 - **Discuss** opens a chat box under the item. The full item text is sent as a
   cached system prompt, so follow-up turns are cheap. History persists per item
   until you press Clear.

@@ -169,8 +169,8 @@ def create_app(auto_refresh: bool = True) -> FastAPI:
             row = db.get_item(conn, item_id)
         return {"request": request, "item": row, "has_key": detail.has_api_key()}
 
-    @app.get("/items/{item_id}/more", response_class=HTMLResponse)
-    def more(request: Request, item_id: int):
+    @app.get("/items/{item_id}/explain", response_class=HTMLResponse)
+    def explain(request: Request, item_id: int):
         ctx = _detail_ctx(request, item_id)
         ctx["error"] = None
         ctx["summary"] = None
@@ -184,7 +184,7 @@ def create_app(auto_refresh: bool = True) -> FastAPI:
                     ctx["summary"] = detail.long_summary(conn, ctx["item"])
             except Exception as exc:  # noqa: BLE001 - show the failure in the panel
                 ctx["error"] = f"Could not generate a summary: {exc}"
-        return render("_more.html", ctx)
+        return render("_explain.html", ctx)
 
     @app.get("/items/{item_id}/chat", response_class=HTMLResponse)
     def chat(request: Request, item_id: int):
