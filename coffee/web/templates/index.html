@@ -8,7 +8,7 @@
 <form class="filters" hx-get="/" hx-target="#items" hx-push-url="true" hx-trigger="change, keyup changed delay:400ms from:[name=q]">
   <div class="seg">
     {% for key, label in range_labels.items() %}
-    <label class="{% if filters.range == key %}on{% endif %}">
+    <label>
       <input type="radio" name="range" value="{{ key }}" {% if filters.range == key %}checked{% endif %}>{{ label }}
     </label>
     {% endfor %}

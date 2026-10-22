@@ -22,7 +22,7 @@ main { max-width: 900px; margin: 0 auto; padding: 16px; }
 .filters input[type=search] { flex: 1; min-width: 140px; }
 .seg { display: flex; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
 .seg label { padding: 6px 10px; cursor: pointer; background: var(--card); font-size: 14px; }
-.seg label.on { background: var(--accent); color: #fff; }
+.seg label:has(input:checked) { background: var(--accent); color: #fff; }
 .seg input { display: none; }
 .check { font-size: 13px; color: var(--muted); }
 .group h2 { font-size: 14px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 22px 0 8px; }
