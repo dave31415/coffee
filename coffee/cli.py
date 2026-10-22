@@ -3,8 +3,13 @@ from __future__ import annotations
 
 import argparse
 import logging
+import os
+import signal
+import socket
+import subprocess
 import sys
 import threading
+import time
 import webbrowser
 
 from . import db
@@ -52,14 +57,91 @@ def main(argv=None) -> int:
     return 1
 
 
+def _port_free(host: str, port: int) -> bool:
+    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
+        sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        try:
+            sock.bind((host, port))
+        except OSError:
+            return False
+    return True
+
+
+def _listeners(port: int) -> list[tuple[int, str]]:
+    """Return (pid, command) for processes listening on the port, via lsof."""
+    try:
+        out = subprocess.run(
+            ["lsof", "-nP", f"-iTCP:{port}", "-sTCP:LISTEN", "-t"],
+            capture_output=True, text=True, timeout=5,
+        ).stdout
+    except (OSError, subprocess.TimeoutExpired):
+        return []
+    found = []
+    for tok in out.split():
+        try:
+            pid = int(tok)
+        except ValueError:
+            continue
+        cmd = subprocess.run(
+            ["ps", "-o", "command=", "-p", str(pid)], capture_output=True, text=True
+        ).stdout.strip()
+        found.append((pid, cmd))
+    return found
+
+
+def _is_coffee(cmd: str) -> bool:
+    return "coffee" in cmd and ("serve" in cmd or "uvicorn" in cmd)
+
+
+def claim_port(host: str, port: int) -> bool:
+    """Make the port available, killing an earlier coffee server if one holds it.
+
+    Returns False if the port is held by something that is not coffee.
+    """
+    if _port_free(host, port):
+        return True
+    listeners = _listeners(port)
+    others = [(pid, cmd) for pid, cmd in listeners if not _is_coffee(cmd)]
+    if others or not listeners:
+        who = "; ".join(f"pid {pid}: {cmd}" for pid, cmd in others) or "unknown process"
+        print(f"port {port} is in use by {who}", file=sys.stderr)
+        print(f"stop it or run with a different port: PORT=8766 coffee", file=sys.stderr)
+        return False
+    for pid, _ in listeners:
+        print(f"stopping earlier coffee server (pid {pid})", flush=True)
+        try:
+            os.kill(pid, signal.SIGTERM)
+        except ProcessLookupError:
+            pass
+    deadline = time.time() + 5
+    while time.time() < deadline:
+        if _port_free(host, port):
+            return True
+        time.sleep(0.2)
+    for pid, _ in listeners:
+        try:
+            os.kill(pid, signal.SIGKILL)
+        except ProcessLookupError:
+            pass
+    deadline = time.time() + 3
+    while time.time() < deadline:
+        if _port_free(host, port):
+            return True
+        time.sleep(0.2)
+    print(f"could not free port {port}", file=sys.stderr)
+    return False
+
+
 def serve(host: str, port: int, open_browser: bool, auto_refresh: bool) -> int:
     import uvicorn
 
     from .web.app import create_app
 
+    if not claim_port(host, port):
+        return 1
     app = create_app(auto_refresh=auto_refresh)
     url = f"http://{host}:{port}"
-    print(f"coffee is brewing at {url}")
+    print(f"coffee is brewing at {url}", flush=True)
     if open_browser:
         threading.Timer(1.0, lambda: webbrowser.open(url)).start()
     uvicorn.run(app, host=host, port=port, log_level="warning")

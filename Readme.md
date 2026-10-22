@@ -21,6 +21,11 @@ Refresh button and shows per-source counts.
 Without an API key everything still works except scoring: items are collected
 and shown under "Not yet scored".
 
+Running `coffee` while an earlier one is still serving on the same port stops
+the old server and starts fresh, so you never have to hunt for the old
+terminal. If the port is held by something that is not coffee, it says so and
+exits; use `PORT=8766 coffee` to pick another.
+
 ## Other commands
 
 ```bash
